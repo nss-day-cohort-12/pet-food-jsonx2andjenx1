@@ -1,5 +1,5 @@
-#Language Translator
-##Group: Yuletide
+#Pet Food
+##Group: JSONx2andJENx1
 -Jason @github/jtreplogle
 -Jen Solima @github/craftylildev
 -Jason Weakley @github/JasonWeakley
