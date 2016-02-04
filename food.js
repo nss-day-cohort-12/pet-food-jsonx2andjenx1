@@ -62,13 +62,9 @@ function executeThisCodeAfterFileIsLoadedCat () {
         currentVolume = currentType.volumes[k];
         catFoodData += "<div class='price'>Price: " + currentVolume.name + " for " + currentVolume.price + "</div>"; // add NAME and PRICE (32oz for 9.99)
       }
-
-    // for (var l = 0; l < currentFood.breeds.length; l++) {
-    //   console.log("currentFood.breeds[l]", currentFood.breeds[l]);
-    // }
     } 
     catFoodData += "<div class='breeds'>Suggested for these breeds: " + currentFood.breeds;
-    console.log("console log breeds", currentFood.breeds);
+    //console.log("console log breeds", currentFood.breeds);
     catFoodData += "</div>"; // close div with class of food-block 
   }
   contentCatDiv.innerHTML = catFoodData; // add to page
