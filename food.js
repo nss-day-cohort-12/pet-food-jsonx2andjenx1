@@ -1,36 +1,32 @@
-console.log("First line in JavaScript file");
-console.log(Date.now());
+// console.log("First line in JavaScript file");
+// console.log(Date.now());
 
 function executeThisCodeAfterFileIsLoaded () {
-  console.log("executeThisCodeAfterFileIsLoaded");
-  console.log(Date.now())
-  console.log("this.responseText", this.responseText);
+  // console.log("executeThisCodeAfterFileIsLoaded");
+  // console.log(Date.now())
+  // console.log("this.responseText", this.responseText);
   var data = JSON.parse(this.responseText);
-  console.log("data", data);
-  var contentEl = document.getElementById("all-my-pet-food") 
+  //console.log("data", data);
+  var contentEl = document.getElementById("all-my-pet-food"); 
   var foodData = "";
 
- for (var i = 0; i < data.dog_brands.length; i++) {
-  currentFood = data.dog_brands[i];
+  for (var i = 0; i < data.dog_brands.length; i++) {
+    currentFood = data.dog_brands[i];
+    foodData += "<div class='food-block'>"; // open div with class of food-block 
+    foodData += `<h2>${currentFood.name}</h2>`;  // add brand NAME (Chuck Wagon)
 
-    foodData += "<div class='food-block'>";
-    foodData += `<h1>${currentFood.name}</h1>`;
-    foodData += "<div class='volume'>";
-    // foodData += `<p>${currentFood.types.volumes.name}</p>`;
-    foodData += "<div class='type'>Type: ";
-    foodData += currentFood.type;
-    foodData += "</div>";
-    foodData += "<div class='price'>Price: ";
-    foodData += currentFood.price;
-    foodData += "</div>";
-    foodData += "</div>"
+    for (var j = 0; j < currentFood.types.length; j++){
+      currentType = currentFood.types[j];
+      foodData += "<div class='type'>Type: " + currentType.type + "</div>"; //add food TYPE (All Natural)
 
-    console.log("currentFood.types.type.volumes.name", currentFood.types);
- }
-
-console.log(foodData);
-contentEl.innerHTML = foodData;
-
+      for (var k = 0; k < currentType.volumes.length; k++){
+        currentVolume = currentType.volumes[k];
+        foodData += "<div class='price'>Price: " + currentVolume.name + " for " + currentVolume.price + "</div>"; // add NAME and PRICE (32oz for 9.99)
+      }
+    } 
+    foodData += "</div>"; // close div with class of food-block 
+  }
+  contentEl.innerHTML = foodData; // add to page
 }
 
 function executeThisCodeIfXHRFails (xhrEvent) {
@@ -41,7 +37,6 @@ function executeThisCodeChunksArrive (xhrEvent) {
 
 }
 
-
 var myRequest = new XMLHttpRequest();
 
 myRequest.addEventListener("load", executeThisCodeAfterFileIsLoaded);
@@ -51,10 +46,5 @@ myRequest.addEventListener("progress", executeThisCodeChunksArrive);
 myRequest.open("GET", "dog.JSON");
 myRequest.send();
 
-
-
-
-
-
-console.log("Last line in JavaScript file");
-console.log(Date.now());
+// console.log("Last line in JavaScript file");
+// console.log(Date.now());
