@@ -17,11 +17,11 @@ function executeThisCodeAfterFileIsLoaded () {
 
     for (var j = 0; j < currentFood.types.length; j++){
       currentType = currentFood.types[j];
-      foodData += "<div class='type'>Type: " + currentFood.types[j].type + "</div>"; //add food TYPE (All Natural)
+      foodData += "<div class='type'>Type: " + currentType.type + "</div>"; //add food TYPE (All Natural)
 
-      for (var k = 0; k < currentFood.types[j].volumes.length; k++){
-        currentVolume = currentFood.types[j].volumes[k];
-        foodData += "<div class='price'>Price: " + currentFood.types[j].volumes[k].name + " for " + currentFood.types[j].volumes[k].price + "</div>"; // add NAME and PRICE (32oz for 9.99)
+      for (var k = 0; k < currentType.volumes.length; k++){
+        currentVolume = currentType.volumes[k];
+        foodData += "<div class='price'>Price: " + currentVolume.name + " for " + currentVolume.price + "</div>"; // add NAME and PRICE (32oz for 9.99)
       }
     } 
     foodData += "</div>"; // close div with class of food-block 
