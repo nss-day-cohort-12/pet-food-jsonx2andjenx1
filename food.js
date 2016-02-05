@@ -63,14 +63,14 @@ function executeThisCodeAfterFileIsLoadedCat () { // CAT
   contentCatDiv.innerHTML = catFoodData; // add content to inner html
 }
 
-var myRequestDog = new XMLHttpRequest();  // dog XMLHttp Request
-var myRequestCat = new XMLHttpRequest();  // cat XMLHttp Request
+var myRequestDog = new XMLHttpRequest();  // sets reference for request for dog json file
+var myRequestCat = new XMLHttpRequest();  // sets reference for request for cat json file
 
-myRequestDog.addEventListener("load", executeThisCodeAfterFileIsLoadedDog); // run dog function
-myRequestCat.addEventListener("load", executeThisCodeAfterFileIsLoadedCat); // run cat function
+myRequestDog.addEventListener("load", executeThisCodeAfterFileIsLoadedDog); // listens for dog json file load, then runs dog function
+myRequestCat.addEventListener("load", executeThisCodeAfterFileIsLoadedCat); // listens for cat json file load, then runs cat function
 
 myRequestDog.open("GET", "dog.JSON"); // get & open the dog json file
 myRequestCat.open("GET", "cats.json"); // get & open the cat json file
 
-myRequestDog.send(); // execute function
-myRequestCat.send(); // execute function
+myRequestDog.send(); // send request
+myRequestCat.send(); // send request
